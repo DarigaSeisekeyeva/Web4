@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Your Profile</h2>
+    <p><strong>Username:</strong> <%= user.username %></p>
+    <p><strong>Email:</strong> <%= user.email %></p>
+
+    <h3>Edit Profile</h3>
+    <form action="/profile/edit" method="POST" enctype="multipart/form-data">
+        <label>Username:</label>
+        <input type="text" name="username" value="<%= user.username %>" required>
+    
+        <label>Email:</label>
+        <input type="email" name="email" value="<%= user.email %>" required>
+    
+        <label>Profile Picture:</label>
+        <img src="<%= user.profilePicture %>" alt="Profile Picture" width="100">
+        <input type="file" name="profilePicture" accept="image/*">
+    
+        <button type="submit">Save Changes</button>
+    </form>
+    <br>
+    <hr>
+    <br>
+   
+    <form action="/profile/delete" method="POST" onsubmit="return confirm('Are you sure? This action cannot be undone.');">
+        <button type="submit" style="color: rgb(244, 240, 240);">Delete Account</button>
+    </form>
+
+    <br>
+    <a href="/dashboard">Back to Dashboard</a>
+    </div>
+</body>
+</html>
