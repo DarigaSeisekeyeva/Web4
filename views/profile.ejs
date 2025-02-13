@@ -9,9 +9,14 @@
 <body>
     <div class="container">
         <h2>Your Profile</h2>
+        <hr>
+    <label>Your Profile Picture:</label>
+    <br>
+    <img src="<%= user.profilePicture %>" alt="Profile Picture" width="100">
     <p><strong>Username:</strong> <%= user.username %></p>
     <p><strong>Email:</strong> <%= user.email %></p>
 
+    <hr>
     <h3>Edit Profile</h3>
     <form action="/profile/edit" method="POST" enctype="multipart/form-data">
         <label>Username:</label>
@@ -26,7 +31,6 @@
     
         <button type="submit">Save Changes</button>
     </form>
-    <br>
     <hr>
     <br>
    
